@@ -1,0 +1,19 @@
+{
+  "name": "edge-helloworld",
+  "version": "1.0.0",
+  "description": "Run .NET Core code from a Node.js process",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeyu/edge-helloworld.git"
+  },
+  "author": "codeyu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeyu/edge-helloworld/issues"
+  },
+  "homepage": "https://github.com/codeyu/edge-helloworld#readme"
+}
