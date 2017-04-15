@@ -33,3 +33,5 @@ If you installed both Mono and .NET Core, by default Edge will use Mono. You opt
 ```bash
 EDGE_USE_CORECLR=1 node app.js
 ```
+
+**note**: all dll command: `dotnet publish -f netcoreapp1.1 -c Release`
