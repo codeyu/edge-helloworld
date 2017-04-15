@@ -1,6 +1,10 @@
 # edge-helloworld
 Run .NET Core code from a Node.js process
 
+Active fork: [https://github.com/agracio/edge](https://github.com/agracio/edge)
+
+REF: [A cross-platform interactive C# script editor](https://blog.jayway.com/2016/03/09/interactive-c-script-editor-built-electron-edgejs/)
+
 ### Building on OSX
 
 Prerequisities:
@@ -34,4 +38,4 @@ If you installed both Mono and .NET Core, by default Edge will use Mono. You opt
 EDGE_USE_CORECLR=1 node app.js
 ```
 
-**note**: all dll command: `dotnet publish -f netcoreapp1.1 -c Release`
+**NOTE**: publish all dll command: `dotnet publish -f netcoreapp1.1 -c Release`
