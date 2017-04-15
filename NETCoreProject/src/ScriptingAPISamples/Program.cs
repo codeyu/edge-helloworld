@@ -10,6 +10,25 @@ namespace ScriptingAPISamples
     {
         static void Main(string[] args)
         {
+            var script = @"int Add(int x, int y) 
+                            {
+                                return x+y;
+                            }
+                            Add(1, 4)";
+            //note: we block here, because we are in Main method, normally we could await as scripting APIs are async
+            var resultInt = CSharpScript.EvaluateAsync<int>(script).Result;
+            //result is now 5
+            Console.WriteLine(resultInt);
+            var code = @"public class Hello
+                        {
+                            public string HelloWorld()
+                            {
+                                return ""Hello World"";
+                            }
+                        }
+                        new Hello().HelloWorld()";
+            var exeResult = Execute(code).Result;
+            Console.WriteLine(exeResult);
             var result = EvaluateACSharpExpression().Result;
             Console.WriteLine(result);
             Console.WriteLine(EvaluateACSharpExpression().Result);
@@ -28,7 +47,13 @@ namespace ScriptingAPISamples
             CreateAndAnalyzeACSharpScript();
             CustomizeAssemblyLoading();
         }
+        private static Task<ScriptState<object>> scriptState = null;
+        public static async Task<object> Execute(string code)
+        {
 
+            scriptState = scriptState == null ? CSharpScript.RunAsync(code) : scriptState.Result.ContinueWithAsync(code);
+            return (await scriptState).ReturnValue;
+        }
         public static async Task<object> EvaluateACSharpExpression()
         {
             return await CSharpScript.EvaluateAsync("1 + 2");

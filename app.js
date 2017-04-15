@@ -17,7 +17,10 @@ var toScriptEngine = edge.func({
     typeName: 'RoslynDemo.ScriptEngine',
     methodName: 'Execute' // This must be Func<object,Task<object>>
 });
-toScriptEngine(getSelectedText(), function (error, result) { console.log(result); });
+toScriptEngine(getSelectedText(), function (error, result) { 
+    if(error) throw error;
+    console.log(result); 
+});
 
         
 function getSelectedText() {
