@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/codeyu/edge-helloworld/issues"
   },
-  "homepage": "https://github.com/codeyu/edge-helloworld#readme"
+  "homepage": "https://github.com/codeyu/edge-helloworld#readme",
+  "dependencies": {
+    "electron-edge-js": "^8.2.9"
+  }
 }
