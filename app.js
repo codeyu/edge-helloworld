@@ -1,8 +1,15 @@
-var path = require('path')
-var edge = require('edge')
+const path = require('path');
+const baseNetAppPath = path.join(__dirname, '\\DLLs');
 
+process.env.EDGE_USE_CORECLR = 1;
+process.env.EDGE_APP_ROOT = baseNetAppPath;
+
+var edge = require('edge-js');
+
+var baseHelloWorldDll = path.join(baseNetAppPath, 'HelloWorld.dll');
+var baseRoslynDemoDll = path.join(baseNetAppPath, 'RoslynDemo.dll');
 var helloWorld = edge.func({
-    assemblyFile: path.resolve(__dirname, 'DLLs', 'HelloWorld.dll'),
+    assemblyFile: baseHelloWorldDll,
     typeName: 'HelloWorld.Other.OtherClass',
     methodName: 'OtherMethod'
 });
@@ -13,7 +20,7 @@ helloWorld(12, function (error, result) {
 })
 
 var toScriptEngine = edge.func({
-    assemblyFile: path.resolve(__dirname, 'DLLs', 'RoslynDemo.dll'),
+    assemblyFile: baseRoslynDemoDll,
     typeName: 'RoslynDemo.ScriptEngine',
     methodName: 'Execute' // This must be Func<object,Task<object>>
 });

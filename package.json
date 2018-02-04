@@ -4,6 +4,7 @@
   "description": "Run .NET Core code from a Node.js process",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,6 @@
   },
   "homepage": "https://github.com/codeyu/edge-helloworld#readme",
   "dependencies": {
-    "electron-edge-js": "^8.2.9"
+    "edge-js": "^9.3.2"
   }
 }
